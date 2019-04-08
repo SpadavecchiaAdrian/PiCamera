@@ -1,0 +1,32 @@
+para instalar camara raspberry con opencv: 
+https://www.pyimagesearch.com/2015/03/30/accessing-the-raspberry-pi-camera-with-opencv-and-python/
+
+para instalar opencv en Raspbian:
+https://www.pyimagesearch.com/2017/09/04/raspbian-stretch-install-opencv-3-python-on-your-raspberry-pi/
+
+comparar con --- https://github.com/tizianofiorenzani/how_do_drones_work/blob/master/opencv/OPENCV_INSTALL.txt
+
+
+
+--------------- Calibración camara---------------------
+
+#1 ejecutar:
+python save_snapshot.py --dwidth 640 --dheight 480 --raspi True
+
+#guardar imagenes con espacio
+#q para terminar, minimo tomar 20 imagenes
+#2 mover las imagenes a una nueva carpeta llamada camara_01
+#3 ejecutar:
+python cameracalib.py camara_01 jpg 9 6 24.5
+
+#donde 9 y 6 son las intersecciones de la imagen cheesboard y 24.5 el valor medido en mm de ancho de cada cuadrado
+
+#seleccionar las imagenes que estén con el patron correcto presionando espacio y las incorrectas las 
+#descartamos con esc, esperar uno minutos a que calcule.
+# deben generarse "cameraDistortion.txt" y "cameraMatrix.txt" también una imagen ya calibrada "calibresult.png"
+
+video: https://www.youtube.com/watch?v=QV1a1G4lL3U&t=353s
+git de los archivos: https://github.com/tizianofiorenzani/how_do_drones_work/blob/master/opencv/cameracalib.py
+
+
+archivo opencv doc: https://docs.opencv.org/3.4/dc/dbb/tutorial_py_calibration.html
